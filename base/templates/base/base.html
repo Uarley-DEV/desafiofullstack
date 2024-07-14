@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load static %}
+    <base href="">
+    <meta charset="utf-8" />
+    <meta name="description" content="Updates and statistics" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="canonical" href="https://keenthemes.com/metronic" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <link href="{% static 'assets/plugins/custom/fullcalendar/fullcalendar.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/plugins/custom/prismjs/prismjs.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/plugins/custom/datatables/datatables.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/js/viewerjs/viewer.css' %}" type="text/css" rel="stylesheet" />
+    {% block style %}
+    {% endblock %}
+    <script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
+    <script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1200 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#0BB783", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#F3F6F9", "dark": "#212121" }, "light": { "white": "#ffffff", "primary": "#D7F9EF", "secondary": "#ECF0F3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#212121", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#ECF0F3", "gray-300": "#E5EAEE", "gray-400": "#D6D6E0", "gray-500": "#B5B5C3", "gray-600": "#80808F", "gray-700": "#464E5F", "gray-800": "#1B283F", "gray-900": "#212121" } }, "font-family": "Poppins" };</script>
+    <script src="{% static 'assets/plugins/global/plugins.bundle.js' %}"></script>
+    <script src="{% static 'assets/plugins/custom/prismjs/prismjs.bundle.js' %}"></script>
+    <script src="{% static 'assets/js/scripts.bundle.js' %}"></script>
+    <script src="{% static 'assets/plugins/custom/fullcalendar/fullcalendar.bundle.js' %}"></script>
+    <script src="{% static 'assets/js/pages/widgets.js' %}"></script>
+    <script src="{% static 'assets/js/funcoes.js' %}"></script>
+    <script src="{% static 'assets/js/pages/crud/forms/widgets/select2.js' %}"></script>
+    <script src="{% static 'assets/plugins/custom/datatables/datatables.bundle.js' %}"></script>
+    <script src="{% static 'assets/js/viewerjs/viewer.js' %}"></script>
+    {% block script %}
+    {% endblock %}
+    <title>Desafio FullStack</title>
+</head>
+<body>
+    <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color: #FFA500;">
+        <div class="tab-content mt-5" id="myTabContent">  
+            <li class="nav-item ">
+                <a class="nav-link active font-weight-bold" href="{% url 'base:index' %}"><i class="fas fa-home"></i>Início</a>
+            </li>
+        </div>
+        <div class="tab-content mt-5" id="myTabContent">      
+            <li class="nav nav-tabs id="myTab" role=tablist">
+                <a class="nav-link font-weight-bold " href="{% url 'base:sair' %}"><i class="fas fa-sign-out-alt">Sair</i></a>
+            </li>
+        </div> 
+        
+    </ul>  
+    <div id="content" class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="footer py-4 d-flex flex-lg-column fixed-bottom" style="background-color: #FFA500; box-shadow: 0 -5px 5px #FFA500;" id="kt_footer">
+        <div class="d-flex flex-column flex-md-row align-items-center justify-content-center">
+            <div class="text-dark order-2 order-md-1">
+                <span class="text-center font-weight-bold mr-2">{% now 'Y' %}©</span>
+                Desafio - FullStack
+            </div>
+        </div>
+    </div>
+</body>
+</html>
