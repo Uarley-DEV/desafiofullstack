@@ -86,17 +86,33 @@
                                             <ul class="menu-nav">
                                                 <li class="menu-item menu-item-open menu-item-here menu-item-submenu menu-item-rel" data-menu-toggle="hover" aria-haspopup="true">
                                                     <a href="javascript:;" class="menu-link menu-toggle">
-                                                        <span class="menu-text " > Cadastro</span>
-                                                        <a href="{% url 'subscriptions:plan_index' %}" class="menu-link"></a>
-                                                            <span class="menu-desc">Planos</span>
-                                                        </a>
-                                                        
+                                                        <span class="menu-text " > Menu</span>
                                                     </a>
                                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                                         <ul class="menu-subnav">
                                                             <li class="menu-item menu-item-active" aria-haspopup="true">
-                                                                <a href="{% url 'subscriptions:plan_index' %}" class="menu-link">
-                                                                    <span class="menu-text">Planos</span>
+                                                                <a href="{% url 'subscriptions:plan_admin' %}" class="menu-link">
+                                                                    <span class="menu-text">Planos(Admin)</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="menu-item menu-item-active" aria-haspopup="true">
+                                                                <a href="{% url 'subscriptions:plan_client' %}" class="menu-link">
+                                                                    <span class="menu-text">Planos(Cliente)</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="menu-item menu-item-active" aria-haspopup="true">
+                                                                <a href="{% url 'subscriptions:plan_client' %}" class="menu-link">
+                                                                    <span class="menu-text">Contratar</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="menu-item menu-item-active" aria-haspopup="true">
+                                                                <a href="{% url 'subscriptions:plan_client' %}" class="menu-link">
+                                                                    <span class="menu-text">Histórico de pagamentos</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="menu-item menu-item-active" aria-haspopup="true">
+                                                                <a href="{% url 'subscriptions:plan_client' %}" class="menu-link">
+                                                                    <span class="menu-text">Meus dados</span>
                                                                 </a>
                                                             </li>
                                                         </ul>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento PIX</title>
+</head>
+<body>
+    <h1>Pagamento PIX</h1>
+    
+    <div>
+        <h2>Por favor, escaneie o QR Code abaixo para realizar o pagamento</h2>
+        <img src="data:image/png;base64,{{ qr_code_base64 }}" alt="QR Code PIX">
+    </div>
+    
+    <div>
+        <h3>Informações do pagamento:</h3>
+        <ul>
+            <li><strong>Valor:</strong> R$ {{ value }}</li>
+            <li><strong>Chave PIX:</strong> {{ key_pix }}</li>
+            <li><strong>Descrição:</strong> {{ description }}</li>
+        </ul>
+    </div>
+    <form action="{% url 'subscriptions:payment_add' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="plan" value="{{ plan }}">
+        <input type="hidden" name="value" value="{{ value }}">
+        <input type="hidden" name="key_pix" value="{{ key_pix }}">
+        <input type="hidden" name="description" value="{{ description }}">
+        <button type="submit">Pagar</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,68 @@
+{% extends "subscriptions/index.html" %}
+{% load static %}
+{% block script %}
+<script src="{% static 'subscriptions/js/plan_admin.js'%}"></script>
+{% endblock %}
+{% block content %}
+{% csrf_token %}
+<div class="card card-custom gutter-b bg-secondary text-white mt-10">
+    {{ request.user.username }}
+    <div class="card-body">
+        <button onclick="abrir_modal_plan()" class="btn btn-light-warning btn-icon btn-circle">
+            <i class="flaticon2-add-1"></i>
+        </button>
+        <div class="card-deck mt-3" id="card_deck">
+            {{ request.user.username }}
+            <!-- Os cards serão adicionados dinamicamente aqui -->
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="frm_plan_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Plano</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i aria-hidden="true" class="ki ki-close"></i>
+                </button>
+            </div>
+            <div class="modal-body" data-scroll="true" >
+                <div class="tab-content mt-5" id="myTabContent">
+                    <div class="tab-pane fade show active" id="kt_tab_pane_1" role="tabpanel" arial-labelledby="kt_tab_pane_1">   
+                        <form method="post" id="frm_plan">
+                            {% csrf_token %}
+                            <div class="row">
+                                <input type="hidden" id="plan_id" name="plan_id">
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="font-weight-bold" for="plan_name">Nome</label>
+                                    <input type="text" class="form-control" id="plan_name" name="plan_name" placeholder="Nome" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="font-weight-bold" for="plan_value">Valor</label>
+                                    <input type="number" class="form-control" id="plan_value" name="plan_value" placeholder="Valor" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label class="font-weight-bold" for="plan_quotas">Nº cotas</label>
+                                    <input type="text" class="form-control" id="plan_quotas" name="plan_quotas" placeholder="Nº de cotas" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="font-weight-bold" for="plan_storage">Armazenamento</label>
+                                    <input type="text" class="form-control" id="plan_storage" name="plan_storage" placeholder="Armazenamento" required>
+                                </div>
+                            </div>                            
+                        </form>
+                    </div>                  
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-text-danger btn-hover-light-danger font-weight-bold" data-dismiss="modal">Sair</button>
+                        <button onclick="plan_add()"type="button" id="plan_btn_salvar" class="btn btn-text-primary btn-hover-light-primary font-weight-bold">Salvar</button>
+                    </div>
+                </div>
+            </div>                
+        </div>
+    </div>
+</div>
+{% endblock %} 
