@@ -1,13 +1,19 @@
 {% extends "subscriptions/index.html" %}
 {% load static %}
 {% block script %}
-<script src="{% static 'subscriptions/js/plan_admin.js'%}"></script>
+<script src="{% static 'subscriptions/js/plan_admin_list.js'%}"></script>
 {% endblock %}
 {% block content %}
 {% csrf_token %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-transparent">
+        <li class="breadcrumb-item"><a href="{% url 'subscriptions:index' %}">Início</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Planos(Cadastrar)</li>
+    </ol>
+</nav>
 <div class="card card-custom gutter-b bg-secondary text-white mt-10">
     <div class="card-body">
-        <button onclick="abrir_modal_plan()" class="btn btn-light-warning btn-icon btn-circle">
+        <button onclick="abrir_modal_plan()" class="btn btn-light-primary btn-icon btn-circle">
             <i class="flaticon2-add-1"></i>
         </button>
         <div class="card-deck mt-3" id="card_deck">

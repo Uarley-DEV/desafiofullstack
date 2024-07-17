@@ -1,0 +1,21 @@
+{% extends "subscriptions/index.html" %}
+{% load static %}
+{% block script %}
+<script src="{% static 'subscriptions/js/plan_client_list.js'%}"></script>
+{% endblock %}
+{% block content %}
+{% csrf_token %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-transparent">
+        <li class="breadcrumb-item"><a href="{% url 'subscriptions:index' %}">Início</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Planos(Contratar / alterar)</li>
+    </ol>
+</nav>
+<div class="card card-custom gutter-b bg-secondary text-white mt-10">
+    <div class="card-body">
+        <div class="card-deck mt-3" id="card_deck">
+            <!-- Os cards serão adicionados dinamicamente aqui -->
+        </div>
+    </div>
+</div>
+{% endblock %} 

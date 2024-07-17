@@ -35,10 +35,10 @@
         <title>Desafio FullStack</title>
     </head>
     <body>
-        <ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color: #FFA500;">
+        <ul class="nav nav-tabs  bg-primary" id="myTab" role="tablist" >
             <div class="tab-content mt-5" id="myTabContent">  
                 <li class="nav-item ">
-                    <div id="kt_header_mobile" class="header-mobile header-mobile-fixed" style="background-color: #FFA500;">
+                    <div id="kt_header_mobile" class="header-mobile header-mobile-fixed bg-primary" style="background-color: #FFA500;">
                         <a href="{% url 'subscriptions:index' %}">
                         </a>
                     </div>
@@ -66,16 +66,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="dropdown">
-                                            <div id="kt_quick_user" class="offcanvas offcanvas-right p-10">
-                                                <div class="offcanvas-header d-flex align-items-center justify-content-between pb-5">
-                                                    <h3 class="font-weight-bold m-0">Perfil de Usuário <small class="text-muted font-size-sm ml-2"></small></h3>
-                                                    <a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_user_close">
-                                                        <i class="ki ki-close icon-xs text-muted"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -86,33 +76,33 @@
                                             <ul class="menu-nav">
                                                 <li class="menu-item menu-item-open menu-item-here menu-item-submenu menu-item-rel" data-menu-toggle="hover" aria-haspopup="true">
                                                     <a href="javascript:;" class="menu-link menu-toggle">
-                                                        <span class="menu-text " > Menu</span>
+                                                        <span class="menu-text " > Menu assinaturas</span>
                                                     </a>
                                                     <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                                         <ul class="menu-subnav">
                                                             <li class="menu-item menu-item-active" aria-haspopup="true">
                                                                 <a href="{% url 'subscriptions:plan_admin' %}" class="menu-link">
-                                                                    <span class="menu-text">Planos(Admin)</span>
+                                                                    <span class="menu-text">Planos(Cadastrar)</span>
                                                                 </a>
                                                             </li>
                                                             <li class="menu-item menu-item-active" aria-haspopup="true">
                                                                 <a href="{% url 'subscriptions:plan_client' %}" class="menu-link">
-                                                                    <span class="menu-text">Planos(Cliente)</span>
+                                                                    <span class="menu-text">Planos(Contratar/alterar)</span>
                                                                 </a>
                                                             </li>
                                                             <li class="menu-item menu-item-active" aria-haspopup="true">
-                                                                <a href="{% url 'subscriptions:plan_client' %}" class="menu-link">
-                                                                    <span class="menu-text">Contrato</span>
+                                                                <a href="{% url 'subscriptions:contract_data' %}" class="menu-link">
+                                                                    <span class="menu-text">Planos assinados(Histórico)</span>
                                                                 </a>
                                                             </li>
                                                             <li class="menu-item menu-item-active" aria-haspopup="true">
-                                                                <a href="{% url 'subscriptions:plan_client' %}" class="menu-link">
-                                                                    <span class="menu-text">Histórico de pagamentos</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="menu-item menu-item-active" aria-haspopup="true">
-                                                                <a href="{% url 'subscriptions:plan_client' %}" class="menu-link">
+                                                                <a href="{% url 'subscriptions:user_data' %}" class="menu-link">
                                                                     <span class="menu-text">Meus dados</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="menu-item menu-item-active" aria-haspopup="true">
+                                                                <a href="{% url 'subscriptions:plan_data' %}" class="menu-link">
+                                                                    <span class="menu-text">Meu Plano</span>
                                                                 </a>
                                                             </li>
                                                         </ul>
@@ -128,16 +118,15 @@
                 </div>
             </div>
         </ul> 
-
         <div id="content" class="container">
             {% block content %}
             {% endblock %}
         </div>
-        <div class="footer py-4 d-flex flex-lg-column fixed-bottom" style="background-color: #FFA500; box-shadow: 0 -5px 5px #FFA500;" id="kt_footer">
+        <div class="footer py-4 d-flex flex-lg-column fixed-bottom bg-primary" style="box-shadow: 0 -5px 5px #00008B;" id="kt_footer">
             <div class="d-flex flex-column flex-md-row align-items-center justify-content-center">
                 <div class="text-dark order-2 order-md-1">
-                    <span class="text-center font-weight-bold mr-2">{% now 'Y' %}©</span>
-                    Desafio - FullStack
+                    <span class="text-center text-white font-weight-bold mr-2">{% now 'Y' %}©</span>
+                    <span class="text-white">Desafio - FullStack</span>
                 </div>
             </div>
         </div>

@@ -1,9 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
-
-
 class Plan(models.Model):
     plan_id = models.BigAutoField(primary_key=True)
     plan_name = models.CharField(max_length=255)
@@ -25,6 +22,7 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user_name
     
+    
 class Contract(models.Model):
     contract_id = models.BigAutoField(primary_key=True)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
@@ -39,7 +37,7 @@ class Contract(models.Model):
 class Payment(models.Model):
     payment_id = models.BigAutoField(primary_key=True)
     contract = models.ForeignKey(Contract, on_delete=models.CASCADE)
-    payment_date = models.DateField(auto_now_add=True)
+    payment_date = models.DateField()
     amount = models.FloatField()
     active = models.BooleanField()
     payment_method = models.CharField(max_length=50)
