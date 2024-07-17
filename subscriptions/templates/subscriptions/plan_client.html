@@ -8,11 +8,8 @@
 <div class="card card-custom gutter-b bg-secondary text-white mt-10">
     {{ request.user.username }}
     <div class="card-body">
-        <button onclick="abrir_modal_plan()" class="btn btn-light-warning btn-icon btn-circle">
-            <i class="flaticon2-add-1"></i>
-        </button>
         <div class="card-deck mt-3" id="card_deck">
-            {{ request.user.username }}
+            {{ userprofile.user_name }}
             <!-- Os cards serão adicionados dinamicamente aqui -->
         </div>
     </div>

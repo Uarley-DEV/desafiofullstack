@@ -22,29 +22,24 @@ var tab_plan = function() {
         $.ajax({
             url: '/subscriptions/plan_list/',
             type: 'POST',
-            dataType: 'json', // Definindo o tipo de dados esperado na resposta
-            dataSrc: 'dados', // Especificando a chave dos dados no JSON de resposta, se necessário
+            dataType: 'json', 
+            dataSrc: 'dados', 
             data: {
-                csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val()  // Captura do token CSRF do formulário
+                csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val()  
             },
             success: function(response) {
-                var data = response.dados; // Supondo que 'dados' seja a chave correta no seu retorno JSON
-
-                // Limpar a div de cards antes de adicionar os novos
+                var data = response.dados; 
                 $('#card_deck').empty();
 
-                // Iterar sobre os dados recebidos e criar os cards
                 $.each(data, function(index, item) {
-                    // Criar o card dentro da coluna
-                    var col = $('<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"></div>'); // Responsividade para preencher 100% da largura em vários tamanhos de tela
+                    var col = $('<div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"></div>'); 
                     var card = $('<div class="card"></div>').css({
                         'background-color': '#fff',
-                        'margin': '0 10px 10px 0', // Margem entre os cards
-                        'width': '250px', // Largura fixa
-                        'height': '250px' // Altura fixa
+                        'margin': '0 10px 10px 0', 
+                        'width': '250px', 
+                        'height': '250px' 
                     });
-                    var cardBody = $('<div class="card-body"></div>').css('color', '#333'); // Texto escuro
-
+                    var cardBody = $('<div class="card-body"></div>').css('color', '#333'); 
                     cardBody.append('<h5 class="card-title text-left" style="background-color: #e65729; color: #fff">' + item.plan_name + '</h5>');
                     cardBody.append('<p class="card-text" style="font-weight: bold;">Preço: <br><span class="plan-value" style="font-size: 1.23em; font-weight: bold;">R$ ' + item.plan_value.toFixed(2).replace('.', ',') + '</span> <span style="font-size: 0.8em;">/mês</span></p>');
                     cardBody.append('<p class="card-text">Armazenamento: <br><span class="plan-storage" style="font-size: 1.23em; font-weight: bold;">' + item.plan_storage +  ' GB </b></span></p>');
@@ -54,10 +49,6 @@ var tab_plan = function() {
                             data-toggle="tooltip" data-placement="bottom" title="Contratar">\
                             <i class="flaticon2-contract"></i>\
                         </a>\
-                        <button type="button" onclick="plan_del(' + item.plan_id + ')" class="btn btn-light-danger btn-icon btn-circle"\
-                            data-toggle="tooltip" data-placement="bottom" title="Remover">\
-                            <i class="flaticon-delete"></i>\
-                        </button>\
                     ');
 
                     card.append(cardBody);

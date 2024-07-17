@@ -30,5 +30,20 @@ class Contract(models.Model):
     user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     plan = models.ForeignKey(Plan, on_delete=models.CASCADE)
     start_date = models.DateField(auto_now_add=True)
-    status = models.BooleanField()
-    credits = models.FloatField(default=0.0)
+    active = models.BooleanField()
+    credits = models.FloatField(default=0.0)  # Campo para armazenar os créditos do usuário
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class Payment(models.Model):
+    payment_id = models.BigAutoField(primary_key=True)
+    contract = models.ForeignKey(Contract, on_delete=models.CASCADE)
+    payment_date = models.DateField(auto_now_add=True)
+    amount = models.FloatField()
+    active = models.BooleanField()
+    payment_method = models.CharField(max_length=50)
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    

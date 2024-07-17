@@ -16,18 +16,21 @@
     <div>
         <h3>Informações do pagamento:</h3>
         <ul>
-            <li><strong>Valor:</strong> R$ {{ value }}</li>
+            <li><strong>Valor a pagar:</strong> R$ {{ value }}</li>
             <li><strong>Chave PIX:</strong> {{ key_pix }}</li>
-            <li><strong>Descrição:</strong> {{ description }}</li>
+            <li><strong>Plano:</strong> {{ description }}</li>
         </ul>
     </div>
     <form action="{% url 'subscriptions:payment_add' %}" method="post">
         {% csrf_token %}
         <input type="hidden" name="plan" value="{{ plan }}">
+        <input type="hidden" name="credit" value="{{ credit }}">
         <input type="hidden" name="value" value="{{ value }}">
         <input type="hidden" name="key_pix" value="{{ key_pix }}">
         <input type="hidden" name="description" value="{{ description }}">
-        <button type="submit">Pagar</button>
+        <input type="hidden" name="saldo_prox_mes" value="{{ saldo_prox_mes }}">
+        <input type="hidden" name="seq" value="{{ seq }}">
+        <button type="submit">Contratar</button>
     </form>
 </body>
 </html>
